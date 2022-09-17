@@ -26,27 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("ran with input:" + playerInput.ToString());
         
-
-        // Movement forward and backward
-        // 1. First way with velocity
-        _playerRigidBody.velocity += _playerTransform.forward * playerInput.y;
-        // 2. Second way with addForce
-        // Vector3 v3Force = transform.forward * playerInput[1];
-        // _playerRigidBody.AddForce(v3Force);
-        // 3. Third way with CharacterController
-        /*
-        if (playerVelocity.y < 0)
-        {
-            playerVelocity.y = 0f;
-        }
-        Vector3 move = new Vector3(playerInput[0], 0, playerInput[1]);
-        controller.Move(move * Time.deltaTime * playerSpeed);
-        if (move != Vector3.zero)
-        {
-            _playerTransform.forward = move;
-        }
-        controller.Move(playerVelocity * Time.deltaTime);
-        */
+        _playerRigidBody.velocity += _playerTransform.forward * playerInput.y * 0.25f;
     }
 
 }

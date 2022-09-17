@@ -7,12 +7,13 @@ public class PlayerInput : BaseInput
     private PlayerControls controls;
     private bool activeMovementInput = false;
 
-    private void Start()
+    private void Awake()
     {
         if (controls == null)
         {
-            controls = new();
+            controls = new PlayerControls();
         }
+        controls.Enable();
         controls.Player.Movement.performed += ctx => activeMovementInput = true;
         controls.Player.Movement.canceled += ctx => { activeMovementInput = false; movement.MoveCharacter(Vector2.zero); };
     }
