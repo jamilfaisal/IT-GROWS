@@ -9,6 +9,10 @@ public class PlayerInput : BaseInput
 
     private void Start()
     {
+        if (controls == null)
+        {
+            controls = new();
+        }
         controls.Player.Movement.performed += ctx => activeMovementInput = true;
         controls.Player.Movement.canceled += ctx => { activeMovementInput = false; movement.MoveCharacter(Vector2.zero); };
     }
