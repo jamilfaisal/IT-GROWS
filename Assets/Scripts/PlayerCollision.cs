@@ -24,6 +24,7 @@ public class PlayerCollision : MonoBehaviour
             Destroy(collision.gameObject);
 
             gameObject.transform.localScale += new Vector3(mass, mass, mass);
+            gameObject.transform.position += new Vector3(0, mass/2, 0);
         }
     }
 }
