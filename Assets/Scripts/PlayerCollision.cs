@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    float mass;
+    public float mass;
     Rigidbody rb;
 
     void Start()
@@ -18,13 +18,19 @@ public class PlayerCollision : MonoBehaviour
  void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "edible"){
-            Rigidbody edibleRb = collision.gameObject.GetComponent<Rigidbody>();
-            float edibleMass = edibleRb.mass;
+            var edibleObject = collision.gameObject.GetComponent<EdibleObject>();
+            float growthSize = edibleObject.Size;
 
-            Destroy(collision.gameObject);
+            if (growthSize < mass)
+            {
+                Destroy(collision.gameObject);
 
-            gameObject.transform.localScale += new Vector3(mass, mass, mass);
-            gameObject.transform.position += new Vector3(0, mass/2, 0);
+                mass += growthSize;
+
+                gameObject.transform.localScale += new Vector3(growthSize, growthSize, growthSize);
+                gameObject.transform.position += new Vector3(0, growthSize / 2, 0);
+
+            }
         }
     }
 }
