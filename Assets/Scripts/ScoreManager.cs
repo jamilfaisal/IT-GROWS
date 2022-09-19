@@ -20,7 +20,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void addScore(int scoreObtained)
+    public void UpdateScore(int scoreObtained)
     {
         playerScore += scoreObtained;
         updater.UpdateScoreText(playerScore);
