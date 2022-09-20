@@ -1105,6 +1105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 0
+  _playerRigidBody: {fileID: 1348870937}
+  _playerTransform: {fileID: 1348870941}
 --- !u!1001 &1420834968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2011,6 +2013,10 @@ PrefabInstance:
       value: SmallCube
       objectReference: {fileID: 0}
     - target: {fileID: 1432829936506200893, guid: da1bfeed9cc73fa49b9957b0ab5b009c, type: 3}
+      propertyPath: <Mass>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432829936506200893, guid: da1bfeed9cc73fa49b9957b0ab5b009c, type: 3}
       propertyPath: <Size>k__BackingField
       value: 0.4
       objectReference: {fileID: 0}
@@ -2084,6 +2090,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7823438997527046662, guid: a7e27e190b313ac4e9e52da48295c981, type: 3}
+      propertyPath: <Mass>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823438997527046662, guid: a7e27e190b313ac4e9e52da48295c981, type: 3}
       propertyPath: <Size>k__BackingField
       value: 2
       objectReference: {fileID: 0}
@@ -2103,6 +2113,10 @@ PrefabInstance:
     - target: {fileID: 4261907626992251728, guid: fcb83e670d16a844d824864de6d7bbd8, type: 3}
       propertyPath: m_Name
       value: Medium Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4261907626992251735, guid: fcb83e670d16a844d824864de6d7bbd8, type: 3}
+      propertyPath: <Mass>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4261907626992251735, guid: fcb83e670d16a844d824864de6d7bbd8, type: 3}
       propertyPath: <Size>k__BackingField

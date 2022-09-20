@@ -5,14 +5,12 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public float size;
-    Rigidbody rb;
+    [SerializeField] private Transform _playerTransform;
     // private ScoreManager scoreManager;
 
     void Start()
     {
-
-        rb = GetComponent<Rigidbody>();
-        size = gameObject.transform.localScale[0];
+        size = _playerTransform.localScale[0];
         // scoreManager = GameObject.FindObjectOfType<ScoreManager>();
     }
 
@@ -20,16 +18,15 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "edible")
         {
-            var edibleObject = collision.gameObject.GetComponent<EdibleObject>();
+            EdibleObject edibleObject = collision.gameObject.GetComponent<EdibleObject>();
             float growthSize = edibleObject.Size;
 
             if (growthSize < size)
             {
-
                 size += growthSize;
                 // scoreManager.UpdateScore(edibleObject.Score);
-
-                gameObject.transform.localScale += new Vector3(growthSize, growthSize, growthSize);
+                
+                gameObject.transform.localScale = new Vector3(size, size, size);
                 gameObject.transform.position += new Vector3(0, growthSize / 2, 0);
                 Destroy(collision.gameObject);
             }
