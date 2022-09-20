@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         _playerTransform.rotation = Quaternion.Euler(_userRotation);
 
         // Player move forward
-        _playerRigidBody.velocity += _playerTransform.forward * playerInput.y * 0.1f;
+        _playerRigidBody.velocity += _playerTransform.forward * playerInput.y * 0.15f;
     }
 
 }
