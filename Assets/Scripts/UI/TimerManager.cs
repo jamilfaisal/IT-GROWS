@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Timer : MonoBehaviour
+public class TimerManager : MonoBehaviour
 {
     public float TimeLeft = 5;
     public bool TimerOn;

@@ -10,7 +10,6 @@ public class PlayerCollision : MonoBehaviour
 
     void Start()
     {
-        size = _playerTransform.localScale[0];
         scoreManager = FindObjectOfType<ScoreManager>();
     }
 
@@ -21,12 +20,20 @@ public class PlayerCollision : MonoBehaviour
             EdibleObject edibleObject = collision.gameObject.GetComponent<EdibleObject>();
             float growthSize = edibleObject.Size;
 
-            if (growthSize < size)
+            if (size > 0.8) {
+                size += 0.15f;
+                scoreManager.UpdateScore(edibleObject.Score);
+                
+                gameObject.transform.localScale += new Vector3(0.15f, 0.15f, 0.15f);
+                gameObject.transform.position += new Vector3(0, 0.15f / 2, 0);
+                Destroy(collision.gameObject);
+            }
+            else if (growthSize < size)
             {
                 size += growthSize;
                 scoreManager.UpdateScore(edibleObject.Score);
                 
-                gameObject.transform.localScale = new Vector3(size, size, size);
+                gameObject.transform.localScale += new Vector3(growthSize, growthSize, growthSize);
                 gameObject.transform.position += new Vector3(0, growthSize / 2, 0);
                 Destroy(collision.gameObject);
             }

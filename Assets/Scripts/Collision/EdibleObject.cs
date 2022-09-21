@@ -7,4 +7,5 @@ public class EdibleObject : MonoBehaviour
     [field: SerializeField] public int Score { get; set; }
 
     [field: SerializeField] public float Size { get; set; }
+
 }
