@@ -6,12 +6,12 @@ public class PlayerCollision : MonoBehaviour
 {
     public float size;
     [SerializeField] private Transform _playerTransform;
-    // private ScoreManager scoreManager;
+    public ScoreManager scoreManager;
 
     void Start()
     {
         size = _playerTransform.localScale[0];
-        // scoreManager = GameObject.FindObjectOfType<ScoreManager>();
+        scoreManager = FindObjectOfType<ScoreManager>();
     }
 
     void OnCollisionEnter(Collision collision)
@@ -24,7 +24,7 @@ public class PlayerCollision : MonoBehaviour
             if (growthSize < size)
             {
                 size += growthSize;
-                // scoreManager.UpdateScore(edibleObject.Score);
+                scoreManager.UpdateScore(edibleObject.Score);
                 
                 gameObject.transform.localScale = new Vector3(size, size, size);
                 gameObject.transform.position += new Vector3(0, growthSize / 2, 0);
