@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
+    public GameObject gameWonText;
+    public GameObject gameLostText;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void EndGame(bool win) {
+        if (win) {
+            gameWonText.SetActive(true);
+        } else {
+            gameLostText.SetActive(true);
+        }
+        Time.timeScale = 0;
     }
 }
